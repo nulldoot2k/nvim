@@ -1,0 +1,55 @@
+local g = vim.g
+local o = vim.opt
+g.mapleader = " "
+g.markdown_recommended_style = 0
+g.ui_notifications_enabled = true
+g.icons_enabled = true
+g.diagnostics_mode = 3
+g.autopairs_enabled = true
+g.cmp_enabled = true
+g.lsp_handlers_enabled = true
+g.codelens_enabled = true
+o.viewoptions:remove "curdir"
+o.shortmess:append { s = true, I = true }
+o.backspace:append { "nostop" }
+o.breakindent = true
+o.clipboard = "unnamedplus"
+o.cmdheight = 0
+o.completeopt = { "menuone", "noselect" }
+o.copyindent = true
+o.cursorline = true
+o.fileencoding = "utf-8"
+o.fillchars = { eob = " " }
+o.foldenable = true
+o.foldlevel = 99
+o.foldlevelstart = 99
+o.ignorecase = true
+o.infercase = true
+o.laststatus = 3
+o.linebreak = true
+o.mouse = "a"
+o.preserveindent = true
+o.pumheight = 10
+o.relativenumber = true
+o.scrolloff = 8
+o.showmode = false
+o.showtabline = 2
+o.sidescrolloff = 8
+o.signcolumn = "yes"
+o.smartcase = true
+o.smartindent = true
+o.splitbelow = true
+o.splitright = true
+o.expandtab = true
+o.shiftwidth = 2
+o.tabstop = 2
+o.softtabstop = 2
+o.autoindent = true
+o.termguicolors = true
+o.timeoutlen = 500
+o.undofile = true
+o.updatetime = 300
+o.virtualedit = "block"
+o.wrap = true
+o.writebackup = false
+vim.wo.number = true
