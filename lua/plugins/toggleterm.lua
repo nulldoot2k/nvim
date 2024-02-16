@@ -21,6 +21,11 @@ return {
       vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
       vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
       vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+
+      vim.keymap.set('t', '<A-j>', [[<Cmd>exec "resize -" . v:count1<CR>]], opts)
+      vim.keymap.set('t', '<A-k>', [[<Cmd>exec "resize +" . v:count1<CR>]], opts)
+      vim.keymap.set('t', '<A-h>', [[<Cmd>exec "vertical resize -" . v:count1<CR>]], opts)
+      vim.keymap.set('t', '<A-l>', [[<Cmd>exec "vertical resize +" . v:count1<CR>]], opts)
     end
     vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
   end
