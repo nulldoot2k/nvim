@@ -20,10 +20,10 @@ return {
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       local lspconfig = require("lspconfig")
-      lspconfig.gopls.setup ({
+      lspconfig.gopls.setup({
         capabilities = capabilities
       })
-      lspconfig.pyright.setup ({
+      lspconfig.pyright.setup({
         capabilities = capabilities
       })
       lspconfig.tsserver.setup({
@@ -33,7 +33,14 @@ return {
         capabilities = capabilities
       })
       lspconfig.lua_ls.setup({
-        capabilities = capabilities
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = {
+              globals = { 'vim' }
+            }
+          }
+        }
       })
 
       vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
