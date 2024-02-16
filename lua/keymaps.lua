@@ -28,3 +28,7 @@ map('n', '<leader>w', ':w<CR>', {noremap = true, silent = true})
 map('n', 'q', ':q<CR>', {noremap = true, silent = true})
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
+
+-- Copy and Paste
+vim.keymap.set({ "n", "x" }, "<leader>y", [["+y]]) -- copy to system clipboard
+vim.keymap.set({ "n", "x" }, "<leader>p", [["+p]]) -- paste from system clipboard

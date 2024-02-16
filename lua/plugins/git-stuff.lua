@@ -1,18 +1,27 @@
 return {
   {
-    "tpope/vim-fugitive"
+    "tpope/vim-fugitive",
+    config = function()
+      vim.keymap.set("n", "<leader>gg", ":Git<CR>", {})
+      vim.keymap.set("n", "<leader>gs", ":Git status<CR>", {})
+      vim.keymap.set("n", "<leader>gc", ":Git commit | startinsert<CR>", {})
+      vim.keymap.set("n", "<leader>gd", ":Git difftool<CR>", {})
+      vim.keymap.set("n", "<leader>gm", ":Git mergetool<CR>", {})
+      vim.keymap.set("n", "<leader>g|", ":Gvdiffsplit<CR>", {})
+      vim.keymap.set("n", "<leader>g_", ":Gvdiffsplit<CR>", {})
+    end
   },
   {
     "lewis6991/gitsigns.nvim",
     config = function()
       require('gitsigns').setup {
         signs                        = {
-          add          = { text = '│' },
-          change       = { text = '│' },
-          delete       = { text = '_' },
-          topdelete    = { text = '‾' },
-          changedelete = { text = '~' },
-          untracked    = { text = '┆' },
+          add = { text = "▎" },
+          change = { text = "▎" },
+          delete = { text = "▎" },
+          topdelete = { text = "󰐊" },
+          changedelete = { text = "▎" },
+          untracked = { text = "▎" },
         },
         signcolumn                   = true,  -- Toggle with `:Gitsigns toggle_signs`
         numhl                        = false, -- Toggle with `:Gitsigns toggle_numhl`
@@ -49,6 +58,12 @@ return {
         },
       }
       vim.keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
+      vim.keymap.set("n", "<leader>gS", ":Gitsigns stage_hunk<CR>", {})
+      vim.keymap.set("n", "<leader>gr", ":Gitsigns reset_hunk<CR>", {})
+      vim.keymap.set("n", "<leader>gR", ":Gitsigns reset_buffer<CR>", {})
+      vim.keymap.set("n", "<leader>gu", ":Gitsigns undo_stage_hunk<CR>", {})
+      vim.keymap.set("n", "<leader>gU", ":Gitsigns reset_buffer_index<CR>", {})
+      vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
       vim.keymap.set("n", "<leader>gt", ":Gitsigns toggle_current_line_blame<CR>", {})
     end
   }
