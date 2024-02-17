@@ -14,7 +14,7 @@ o.expandtab = true
 o.smartindent = true
 o.shiftwidth = 2
 
--- Enable smart indenting (see https://stackoverflow.com/questions/1204149/smart-wrap-in-vim)
+-- Enable smart indenting
 o.breakindent = true
 
 -- Enable incremental searching
@@ -22,7 +22,7 @@ o.incsearch = true
 o.hlsearch = true
 
 -- Disable text wrap
-o.wrap = false
+o.wrap = true
 
 -- Set leader key to space
 g.mapleader = " "
@@ -91,11 +91,10 @@ g.codelens_enabled = true
 o.viewoptions:remove "curdir"
 o.shortmess:append { s = true, I = true }
 o.backspace:append { "nostop" }
-o.breakindent = true
 o.cmdheight = 0
 o.copyindent = true
 o.fileencoding = "utf-8"
-o.fillchars = { eob = " " }
+o.fillchars = { eob = " ", fold = " ", vert = " " }
 o.infercase = true
 o.laststatus = 3
 o.linebreak = true
@@ -107,7 +106,6 @@ o.showtabline = 2
 o.sidescrolloff = 8
 o.autoindent = true
 o.timeoutlen = 500
-o.updatetime = 300
 o.virtualedit = "block"
 o.writebackup = false
 

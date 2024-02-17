@@ -17,6 +17,10 @@ return {
               ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
               ["<C-x>"] = actions.delete_buffer,
             },
+            n = {
+              ["<PageUp>"] = actions.preview_scrolling_up,
+              ["<PageDown>"] = actions.preview_scrolling_down,
+            }
           },
           extensions = {
             ["ui-select"] = {
