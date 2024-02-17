@@ -43,7 +43,7 @@ o.smartcase = true
 o.updatetime = 50
 
 -- Set completeopt to have a better completion experience
-vim.opt.completeopt = { "menuone", "noselect" }
+o.completeopt = { "menuone", "noselect" }
 
 -- Enable persistent undo history
 o.undofile = true
@@ -55,6 +55,7 @@ o.termguicolors = true
 o.signcolumn = "yes"
 
 -- Enable access to System Clipboard
+o.clipboard = "unnamedplus"
 if vim.fn.has('wsl') == 1 then
   vim.api.nvim_create_autocmd('TextYankPost', {
     group = vim.api.nvim_create_augroup('Yank', { clear = true }),
@@ -95,7 +96,6 @@ o.shortmess:append { s = true, I = true }
 o.backspace:append { "nostop" }
 o.breakindent = true
 o.cmdheight = 0
-o.completeopt = { "menuone", "noselect" }
 o.copyindent = true
 o.fileencoding = "utf-8"
 o.fillchars = { eob = " " }
