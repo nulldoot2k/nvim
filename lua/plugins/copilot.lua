@@ -1,9 +1,16 @@
 return {
-  { "github/copilot.vim" },
+  {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+  },
   {
     "zbirenbaum/copilot-cmp",
     config = function()
-      require("copilot_cmp").setup()
-    end
-  }
+      require("copilot_cmp").setup({
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
 }
