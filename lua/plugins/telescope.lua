@@ -7,11 +7,23 @@ return {
     tag = "0.1.5",
     dependencies = { "nvim-lua/plenary.nvim" },
     config = function()
+      local actions = require("telescope.actions")
       require("telescope").setup({
-        extensions = {
-          ["ui-select"] = {
-            require("telescope.themes").get_dropdown({}),
+        defaults = {
+          mappings = {
+            i = {
+              ["<C-k>"] = actions.move_selection_previous,
+              ["<C-j>"] = actions.move_selection_next,
+              ["<C-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
+              ["<C-x>"] = actions.delete_buffer,
+            },
           },
+          extensions = {
+            ["ui-select"] = {
+              require("telescope.themes").get_dropdown({}),
+            },
+          },
+          hidden = true,
         },
       })
       local builtin = require("telescope.builtin")

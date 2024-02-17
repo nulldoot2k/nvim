@@ -79,9 +79,6 @@ o.foldenable = true
 -- Always keep 8 lines above/below cursor unless at start/end of file
 o.scrolloff = 8
 
--- Place a column line
-o.colorcolumn = "100"
-
 -- Other
 g.markdown_recommended_style = 0
 g.ui_notifications_enabled = true
