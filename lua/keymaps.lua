@@ -25,6 +25,6 @@ map('n', 'u', ':undo<CR>', { noremap = true, silent = true, desc = "Undo" })
 map('n', '<Tab>', ':bnext<CR>', {noremap = true, silent = true})
 map('n', '<S-Tab>', ':bprevious<CR>', {noremap = true, silent = true})
 map('n', '<leader>w', ':w<CR>', {noremap = true, silent = true})
-map('n', 'q', ':qa<CR>', {noremap = true, silent = true})
+map('n', 'q', ':q<CR>', {noremap = true, silent = true})
 
 vim.keymap.set('n', '<leader>h', ':nohlsearch<CR>')
