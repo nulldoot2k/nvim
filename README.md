@@ -90,6 +90,8 @@ For example:
 ## Install and Setup
 
 ```bash
+sudo add-apt-repository universe
+sudo apt -y install libfuse2
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
 chmod u+x nvim.appimage
 mv nvim.appimage nvim
@@ -102,18 +104,27 @@ For Wsl
 
 ```bash
 scoop install lua-language-server
-sudo apt-get install python3.8-venv
-sudo apt-get -y install tar unzip jq curl wget tmux
+sudo apt-get -y install python3-pip python3-venv
+sudo apt-get -y install tar unzip jq curl wget tmux gcc ripgrep
 wget https://go.dev/dl/go1.20.10.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xvzf go1.20.10.linux-amd64.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+
+cat << EOF > ~/.tmux.conf
+source-file ~/.config/tmux/tmux.conf
+EOF
+git clone https://github.com/nulldoot2k/tmux.git ~/.config/tmux
+tmux
+
+sudo apt-get install git
+git config --global credential.helper wincred
+git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
 
 sudo apt-get install ruby-full build-essential zlib1g-dev
 echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
 echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
 echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
 source ~/.bashrc
-gem update --system
 gem install jekyll bundler
 ```
 
