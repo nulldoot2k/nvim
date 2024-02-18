@@ -90,7 +90,11 @@ For example:
 ## Install and Setup
 
 ```bash
-git clone https://github.com/nulldoot2k/neovim-m1.git ~/.config/nvim
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+chmod u+x nvim.appimage
+mv nvim.appimage nvim
+mv nvim /usr/local/bin
+git clone https://github.com/nulldoot2k/neovim-m1.git ${HOME}/.config/nvim
 nvim
 ```
 
@@ -98,6 +102,11 @@ For Wsl
 
 ```bash
 scoop install lua-language-server
+sudo apt-get install python3.8-venv
+sudo apt-get -y install tar unzip jq curl wget tmux
+wget https://go.dev/dl/go1.20.10.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xvzf go1.20.10.linux-amd64.tar.gz
+echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
 ```
 
 For Windows
