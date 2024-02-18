@@ -107,6 +107,14 @@ sudo apt-get -y install tar unzip jq curl wget tmux
 wget https://go.dev/dl/go1.20.10.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xvzf go1.20.10.linux-amd64.tar.gz
 echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.bashrc
+
+sudo apt-get install ruby-full build-essential zlib1g-dev
+echo '# Install Ruby Gems to ~/gems' >> ~/.bashrc
+echo 'export GEM_HOME="$HOME/gems"' >> ~/.bashrc
+echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.bashrc
+source ~/.bashrc
+gem update --system
+gem install jekyll bundler
 ```
 
 For Windows
