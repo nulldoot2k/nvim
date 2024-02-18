@@ -116,6 +116,23 @@ EOF
 git clone https://github.com/nulldoot2k/tmux.git ~/.config/tmux
 tmux
 
+sudo apt-add-repository ppa:fish-shell/release-3
+sudo apt-get update
+sudo apt-get install fish
+chsh -s $(which fish)
+
+cat << EOF > ~/.config/fish/config.fish
+if status is-interactive
+  set -gx EDITOR nvim
+  set -gx PATH $PATH ~/.fnm ~/.yarn/bin ~/.composer/vendor/bin
+  if not set -q TMUX
+    set -g TMUX tmux new-session -d -s base
+    eval $TMUX
+    tmux attach-session -d -t base
+  end
+end
+EOF
+
 sudo apt-get install git
 git config --global credential.helper wincred
 git config --global credential.helper "/mnt/c/Program\ Files/Git/mingw64/bin/git-credential-manager.exe"
