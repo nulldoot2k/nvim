@@ -26,6 +26,9 @@ return {
       lspconfig.pyright.setup({
         capabilities = capabilities
       })
+      lspconfig.yamlls.setup({
+        capabilities = capabilities
+      })
       lspconfig.tsserver.setup({
         capabilities = capabilities
       })
