@@ -24,7 +24,7 @@ return {
       '⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣼⣿⣿⣿⣿⣧⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀ ',
       '⠀⠀⠀⠐⢤⣀⣀⢀⣀⣠⣴⣿⣿⠿⠋⠙⠿⣿⣿⣦⣄⣀⠀⠀⣀⡠⠂⠀⠀⠀ ',
       '⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠉⠀⠀⠀⠀⠀⠈⠉⠛⠛⠛⠛⠋⠁⠀⠀⠀⠀⠀ ',
-      'kitto2k: https://kitto2k.netlify.app',
+      'datvu2k: https://datvu2k.netlify.app',
     }
     dashboard.section.buttons.val = {
       dashboard.button("e", "  > New file", ":ene <BAR> startinsert <CR>"),
