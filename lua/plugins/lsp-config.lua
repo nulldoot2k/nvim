@@ -30,9 +30,14 @@ return {
         capabilities = capabilities
       })
       lspconfig.tsserver.setup({
-        capabilities = capabilities
+        filetypes = { "typescript-language-server", "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
+        capabilities = capabilities,
+        cmd = { "typescript-language-server.cmd", "--stdio" }
       })
       lspconfig.html.setup({
+        capabilities = capabilities
+      })
+      lspconfig.yamlls.setup({
         capabilities = capabilities
       })
       lspconfig.lua_ls.setup({

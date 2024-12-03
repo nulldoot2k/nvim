@@ -21,17 +21,10 @@ return {
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
       end
-      -- cmp.event:on(
-      --   'confirm_done',
-      --   cmp_autopairs.on_confirm_done()
-      -- )
 
       cmp.event:on("menu_opened", function()
         vim.b.copilot_suggestion_hidden = true
       end)
-      -- cmp.event:on("menu_closed", function()
-      --   vim.b.copilot_suggestion_hidden = false
-      -- end)
 
       cmp.setup({
         formatting = {
