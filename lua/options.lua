@@ -51,6 +51,9 @@ o.undofile = true
 -- Enable 24-bit color
 o.termguicolors = true
 
+-- Enable Grid
+o.cursorcolumn = true
+
 -- Enable the sign column to prevent the screen from jumping
 o.signcolumn = "yes"
 
