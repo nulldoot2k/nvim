@@ -59,14 +59,29 @@ o.signcolumn = "yes"
 
 -- Enable access to System Clipboard
 o.clipboard = "unnamedplus"
-if vim.fn.has('wsl') == 1 then
-  vim.api.nvim_create_autocmd('TextYankPost', {
-    group = vim.api.nvim_create_augroup('Yank', { clear = true }),
-    callback = function()
-      vim.fn.system('clip.exe', vim.fn.getreg('"'))
-    end,
-  })
-end
+vim.cmd [[
+let g:clipboard = {
+    'name': 'TmuxTermux',
+    'copy': {
+       '*': ['tmux', 'load-buffer', '-'],
+       '+': ['termux-clipboard-set'],
+     },
+    'paste': {
+       '*': ['tmux', 'save-buffer', '-'],
+       '+': ['termux-clipboard-get'],
+    },
+    'cache_enabled': 1,
+  }
+]]
+
+-- if vim.fn.has('wsl') == 1 then
+--   vim.api.nvim_create_autocmd('TextYankPost', {
+--     group = vim.api.nvim_create_augroup('Yank', { clear = true }),
+--     callback = function()
+--       vim.fn.system('clip.exe', vim.fn.getreg('"'))
+--     end,
+--   })
+-- end
 
 -- Enable cursor line highlight
 o.cursorline = true
