@@ -51,37 +51,36 @@ o.undofile = true
 -- Enable 24-bit color
 o.termguicolors = true
 
--- Enable Grid
-o.cursorcolumn = true
-
 -- Enable the sign column to prevent the screen from jumping
 o.signcolumn = "yes"
 
 -- Enable access to System Clipboard
 o.clipboard = "unnamedplus"
-vim.cmd [[
-let g:clipboard = {
-    'name': 'TmuxTermux',
-    'copy': {
-       '*': ['tmux', 'load-buffer', '-'],
-       '+': ['termux-clipboard-set'],
-     },
-    'paste': {
-       '*': ['tmux', 'save-buffer', '-'],
-       '+': ['termux-clipboard-get'],
+-- vim.g.clipboard = {
+--   name = 'WslClipboard',
+--   copy = {
+--     ["+"] = 'clip.exe',
+--     ["*"] = 'clip.exe',
+--   },
+--   paste = {
+--     ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--     ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+--   },
+--   cache_enabled = 0,
+-- }
+-- change win32 fast more wsl2 and tmux and powershell
+vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+        ["+"] = "win32yank.exe -i --crlf",
+        ["*"] = "win32yank.exe -i --crlf",
     },
-    'cache_enabled': 1,
-  }
-]]
-
--- if vim.fn.has('wsl') == 1 then
---   vim.api.nvim_create_autocmd('TextYankPost', {
---     group = vim.api.nvim_create_augroup('Yank', { clear = true }),
---     callback = function()
---       vim.fn.system('clip.exe', vim.fn.getreg('"'))
---     end,
---   })
--- end
+    paste = {
+        ["+"] = "win32yank.exe -o --lf",
+        ["*"] = "win32yank.exe -o --lf",
+    },
+    cache_enabled = true,
+}
 
 -- Enable cursor line highlight
 o.cursorline = true
