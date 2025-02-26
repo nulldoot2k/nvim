@@ -57,33 +57,43 @@ o.cursorcolumn = true
 -- Enable the sign column to prevent the screen from jumping
 o.signcolumn = "yes"
 
--- Enable access to System Clipboard
-o.clipboard = "unnamedplus"
--- vim.g.clipboard = {
---   name = 'WslClipboard',
---   copy = {
---     ["+"] = 'clip.exe',
---     ["*"] = 'clip.exe',
---   },
---   paste = {
---     ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---     ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
---   },
---   cache_enabled = 0,
--- }
--- change win32 fast more wsl2 and tmux and powershell
-vim.g.clipboard = {
+-- Copy
+local function is_wsl()
+  local uname = vim.loop.os_uname()
+  local release = uname.release:lower()
+  return release:find("microsoft") ~= nil
+end
+if is_wsl() then
+  -- WSL2/Powershell
+  vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {
-        ["+"] = "win32yank.exe -i --crlf",
-        ["*"] = "win32yank.exe -i --crlf",
+      ["+"] = "win32yank.exe -i --crlf",
+      ["*"] = "win32yank.exe -i --crlf",
     },
     paste = {
-        ["+"] = "win32yank.exe -o --lf",
-        ["*"] = "win32yank.exe -o --lf",
+      ["+"] = "win32yank.exe -o --lf",
+      ["*"] = "win32yank.exe -o --lf",
     },
     cache_enabled = true,
-}
+  }
+else
+  -- Ubuntu
+  vim.g.clipboard = {
+    name = "xclip",
+    copy = {
+      ["+"] = "xclip -selection clipboard",
+      ["*"] = "xclip -selection primary",
+    },
+    paste = {
+      ["+"] = "xclip -selection clipboard -o",
+      ["*"] = "xclip -selection primary -o",
+    },
+    cache_enabled = false,
+  }
+end
+vim.o.clipboard = "unnamedplus"
+-- End Copy
 
 -- Enable cursor line highlight
 o.cursorline = true

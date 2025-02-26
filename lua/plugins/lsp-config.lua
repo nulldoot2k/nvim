@@ -29,7 +29,7 @@ return {
       lspconfig.yamlls.setup({
         capabilities = capabilities
       })
-      lspconfig.tsserver.setup({
+      lspconfig.ts_ls.setup({
         filetypes = { "typescript-language-server", "typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx" },
         capabilities = capabilities,
         cmd = { "typescript-language-server.cmd", "--stdio" }
